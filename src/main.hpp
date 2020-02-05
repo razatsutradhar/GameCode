@@ -11,16 +11,6 @@
 #include "D:\Documents\ProsCode\GameCode\src\autonRun1.hpp"
 
 /******************************************************GLOBALS************************************************************/
-// Motor LeftDriveFront = Motor(13);	            //first motor
-// Motor LeftDriveBack = Motor(10);          //third motor
-// Motor LeftIntake = Motor(11);           //second motor
-// Motor RightDriveFront = Motor(-2);        //fourth motor
-// Motor RightDriveBack = Motor(-1);		      //sixth motor
-// Motor RightIntake = Motor(-14);         //fifth motor
-// Motor Dropper = Motor(3);               //seventh motor
-// Motor FourBar = Motor(12);           //eighth motor
-// MotorGroup DisplayMotor = {FourBar};  //default display motor
-
 int LeftDriveFrontSpeed;	            //first motor
 int LeftDriveBackSpeed;          //third motor
 int LeftIntakeSpeed;           //second motor
@@ -206,19 +196,7 @@ void initialize() {
  * the robot is enabled, this task will exit.
  */
 void disabled() {
-	// while(true){
-	// 	if(btnLeft.isPressed()){
 
-	//  }else if(btnRight.isPressed()){
-	// 	 autNum--;
-	// 	 if(autNum < 0){
-	// 		 autNum += 4;
-	// 	 }
-	// 	 autNum = autNum%4;
-	//  }
-	//  controller.setText(0, 0, arr[autNum]);
-	//  pros::delay(50);
-	// }
 }
 
 /**
@@ -262,28 +240,6 @@ void moveDrive(int dist, int pow){
 	left.moveRelative(dist, pow);
 	right.moveRelative(dist, pow);
 }
-void redVertical(){
-	FourBar.moveAbsolute(-700, 200);
-
-	Dropper.moveAbsolute(700, 200);
-	pros::delay(1950);
-
-	//move 4-bar to height of 2nd cube
-	FourBar.moveAbsolute(-50, 200);
-	Dropper.moveAbsolute(500, 200);
-	pros::delay(1300);
-
-	intake(120); // start intake
-	//set drive max speed
-	drive.setMaxVelocity(160);
-	//move drive forward 790 encoder units
-	drive.moveDistance(1200);
-	pros::delay(700);
-	intake(200);
-
-	drive.setMaxVelocity(70);
-	drive.moveDistance(200);
-}//redVertical
 
 void blueVertical(){
 	FourBar.moveAbsolute(-700, 200);
@@ -326,19 +282,7 @@ void blueVertical(){
 	drive.turnAngle(-410);
 }//blueVertical
 
-void redPreload(){
-	FourBar.moveAbsolute(-700, 200);
-	pros::delay(1950);
 
-	//move 4-bar to height of 2nd cube
-	FourBar.moveAbsolute(-120, 200);
-	pros::delay(1300);
-
-	// drive.moveDistance(600);
-	// drive.moveDistance(-400);
-	drive.moveDistance(600);
-	drive.rotate(100);
-}
 
 void bluePreload(){
 	drive.moveDistance(600);

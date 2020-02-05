@@ -1,0 +1,37 @@
+#include "main.h"
+///////////////////////////////////////////////////////////////////////////////
+// RED AUTON FOR PROTECTED ZONE
+///////////////////////////////////////////////////////////////////////////////
+void redVertical(){
+  //move 4bar up to initiate flip out
+	FourBar.moveAbsolute(-700, 200);
+
+	//move 4-bar to height of 2nd cube, simultaniously move tray up to become more
+  //vertical so we can pick up the stack of cubes
+	FourBar.moveAbsolute(-50, 200);
+	Dropper.moveAbsolute(500, 200);
+	pros::delay(1300);
+
+  //start intake
+	intake(120);
+
+	//set drive max speed
+	drive.setMaxVelocity(180);
+	//move drive forward 1200 encoder units
+	drive.moveDistance(1200);
+
+  //stop the drive for 700 millisecs
+	pros::delay(700);
+  //---AT THIS POINT WE HAVE 3 CUBES IN THE TRAY---//
+
+  //speed up the intake
+	intake(200);
+
+  //back up slowly
+	drive.setMaxVelocity(120);
+	drive.moveDistance(-200);
+
+  FourBar.moveAbsolute(0, 200);
+  pros::delay(700);
+
+}//redVertical
