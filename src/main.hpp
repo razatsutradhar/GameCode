@@ -282,8 +282,6 @@ void blueVertical(){
 	drive.turnAngle(-410);
 }//blueVertical
 
-
-
 void bluePreload(){
 	drive.moveDistance(600);
 	drive.moveDistance(-400);
